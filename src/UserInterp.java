@@ -1,3 +1,5 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class UserInterp {
 
@@ -7,6 +9,10 @@ public class UserInterp {
 	private String verb;
 	private String noun;
 	private Integer verbSelect;
+	
+	// Logging Object
+		final static Logger log = 
+				LogManager.getLogger(UserInterp.class.getName());
 	
 	// Step 1 of the user interpretation methods (If there needs to be more)
 	public Integer userInterpStep1(String Input) {
@@ -21,33 +27,34 @@ public class UserInterp {
 		verb = userStepThrough[0];
 		
 		// Figure out which action they selected, act accordingly
-		switch(verb) {
-		case "walk":
-			System.out.println("walk");
-			break;
-		case "interact":
-			System.out.println("interact");
-			break;
-		case "use":
-			System.out.println("use");
-			break;
-		case "open":
-			System.out.println("open");
-			break;
-		}
+        switch(verb) {
+        case "walk":
+            verbSelect = 1;
+            break;
+        case "interact":
+            verbSelect = 2;
+            break;
+        case "use":
+            verbSelect = 3;
+            break;
+        case "open":
+            verbSelect = 4;
+            break;
+        }
 		
 		// Return what they wanted to do in Int format for easy ID
 		return verbSelect;
 			
 		} catch (ArrayIndexOutOfBoundsException e) {
-	        System.out.println("Invalid input format"); // change sys out to logger.error later(?)
-	        verbSelect = 900; //  Error code, to send back to main, so we can display to user.
-	        return verbSelect;
+			
+	        log.error("Invalid input format");
+	        return null;
+	        
 	    	} catch (Exception e) {
-	        System.out.println("Error occured" + e.getMessage());
-	        verbSelect = 999; //  Error code, to send back to main, so we can display to user.
-	        return verbSelect;
-	    	} finally {
+	    		
+	        log.error("Error Occured: " + e.getMessage());
+	        return null;
+	        
 	    	}
 	}
 	
