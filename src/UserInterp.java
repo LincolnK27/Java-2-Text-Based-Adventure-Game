@@ -21,20 +21,20 @@ public class UserInterp {
 		verb = userStepThrough[0];
 		
 		// Figure out which action they selected, act accordingly
-		switch(verb) {
-		case "walk":
-			System.out.println("walk");
-			break;
-		case "interact":
-			System.out.println("interact");
-			break;
-		case "use":
-			System.out.println("use");
-			break;
-		case "open":
-			System.out.println("open");
-			break;
-		}
+        switch(verb) {
+        case "walk":
+            verbSelect = 1;
+            break;
+        case "interact":
+            verbSelect = 2;
+            break;
+        case "use":
+            verbSelect = 3;
+            break;
+        case "open":
+            verbSelect = 4;
+            break;
+        }
 		
 		// Return what they wanted to do in Int format for easy ID
 		return verbSelect;
