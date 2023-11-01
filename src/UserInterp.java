@@ -1,22 +1,27 @@
+//Import the necessary files for logging
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+//A class for user input to determine the noun chosen
 public class UserInterp {
 
-	// Declarations
+	// Variable Declarations
 	private String userInput;
 	private String[] userStepThrough;
 	private String verb;
 	private String noun;
 	private Integer verbSelect;
 	
-	// Logging Object
+	// Logging Object Instantiated
 		final static Logger log = 
 				LogManager.getLogger(UserInterp.class.getName());
 	
 	// Step 1 of the user interpretation methods (If there needs to be more)
 	public Integer userInterpStep1(String Input) {
 
+		//Try to split the input and determine which verb the user input
+		//If an error is thrown, warn the user if it is invalid data or an error
+		//Log the error
 		try {
 		
 		// Grab user input and break it down (Lower case for simplicity)
@@ -47,11 +52,13 @@ public class UserInterp {
 			
 		} catch (ArrayIndexOutOfBoundsException e) {
 			
-	        log.error("Invalid input format");
+			//Warn the user and log the exception, then return null
+	        log.warn("Invalid input format");
 	        return null;
 	        
 	    	} catch (Exception e) {
 	    		
+	    	//Display an error and log it in the file.
 	        log.error("Error Occured: " + e.getMessage());
 	        return null;
 	        
@@ -66,8 +73,11 @@ public class UserInterp {
 		if (userStepThrough.length == 2) {
 			
 			Integer i = 1; // index starts at 1 in this case as we want to skip the verb.
+			
+			//Step through the noun while not at the end
 			while(i < userStepThrough.length){
 				
+				//Add the next letter index and iterate the variable
 				noun = noun + userStepThrough[i];
 				i++;
 			}
@@ -89,6 +99,7 @@ public class UserInterp {
 			
 		}		
 		
+		//return the noun
 		return noun;
 	}
 	
