@@ -40,11 +40,13 @@ public class UserInterp {
 		return verbSelect;
 			
 		} catch (ArrayIndexOutOfBoundsException e) {
-	        System.out.println("Invalid input format"); // change sout to logger.error later(?)
-	        return null;
+	        System.out.println("Invalid input format"); // change sys out to logger.error later(?)
+	        verbSelect = 900; //  Error code, to send back to main, so we can display to user.
+	        return verbSelect;
 	    	} catch (Exception e) {
 	        System.out.println("Error occured" + e.getMessage());
-	        return null;
+	        verbSelect = 999; //  Error code, to send back to main, so we can display to user.
+	        return verbSelect;
 	    	} finally {
 	    	}
 	}
