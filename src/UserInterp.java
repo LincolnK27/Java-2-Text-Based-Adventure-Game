@@ -47,7 +47,7 @@ public class UserInterp {
 			
 		} catch (ArrayIndexOutOfBoundsException e) {
 			
-	        log.error("Invalid input format");
+	        log.warn("Invalid input format");
 	        return null;
 	        
 	    	} catch (Exception e) {
