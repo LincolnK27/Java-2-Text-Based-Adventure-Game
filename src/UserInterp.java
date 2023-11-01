@@ -34,16 +34,43 @@ public class UserInterp {
 			break;
 		}
 		
-		// Figure out which item they interacted with (If this can pass on, if not, write another method for a "step 2"
-		Integer i = 1; // index starts at 1 in this case as we want to skip the verb.
-		while(i < userStepThrough.length){
-			
-			noun = noun + userStepThrough[i];
-			i++;
-		}
-		
 		// Return what they wanted to do in Int format for easy ID
 		return verbSelect;
+	}
+	
+	
+	// Figure out which item they interacted with
+	public String userInterpStep2(String Input) {
+		
+		
+		// Find length, modify noun by length
+		if (userStepThrough.length == 2) {
+			
+			Integer i = 1; // index starts at 1 in this case as we want to skip the verb.
+			while(i < userStepThrough.length){
+				
+				noun = noun + userStepThrough[i];
+				i++;
+			}
+			
+		} else {
+			
+			Integer i = 1; // index starts at 1 in this case as we want to skip the verb.
+			while(i < userStepThrough.length){
+				
+				// In case they specify multiple words as one object/item then we must concat a space
+				noun = noun + userStepThrough[i] + " ";
+				i++;
+			}
+			
+			// But because we have to concat a space at the end of every loop, 
+			// the noun will end with a space, causing issues
+			// so we must trim that extra space.
+			noun.trim();
+			
+		}		
+		
+		return noun;
 	}
 	
 }
