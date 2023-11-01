@@ -10,6 +10,8 @@ public class UserInterp {
 	
 	// Step 1 of the user interpretation methods (If there needs to be more)
 	public Integer userInterpStep1(String Input) {
+
+		try {
 		
 		// Grab user input and break it down (Lower case for simplicity)
 		userInput = Input;
@@ -36,8 +38,16 @@ public class UserInterp {
 		
 		// Return what they wanted to do in Int format for easy ID
 		return verbSelect;
+			
+		} catch (ArrayIndexOutOfBoundsException e) {
+	        System.out.println("Invalid input format"); // change sout to logger.error later(?)
+	        return null;
+	    	} catch (Exception e) {
+	        System.out.println(«Error occurred" + e.getMessage());
+	        return null;
+	    	} finally {
+	    	}
 	}
-	
 	
 	// Figure out which item they interacted with
 	public String userInterpStep2(String Input) {
