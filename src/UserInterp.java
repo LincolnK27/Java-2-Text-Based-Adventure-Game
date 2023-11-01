@@ -43,7 +43,7 @@ public class UserInterp {
 	        System.out.println("Invalid input format"); // change sout to logger.error later(?)
 	        return null;
 	    	} catch (Exception e) {
-	        System.out.println(«Error occurred" + e.getMessage());
+	        System.out.println("Error occured" + e.getMessage());
 	        return null;
 	    	} finally {
 	    	}
