@@ -1,3 +1,5 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class UserInterp {
 
@@ -7,6 +9,10 @@ public class UserInterp {
 	private String verb;
 	private String noun;
 	private Integer verbSelect;
+	
+	// Logging Object
+		final static Logger log = 
+				LogManager.getLogger(UserInterp.class.getName());
 	
 	// Step 1 of the user interpretation methods (If there needs to be more)
 	public Integer userInterpStep1(String Input) {
@@ -40,12 +46,15 @@ public class UserInterp {
 		return verbSelect;
 			
 		} catch (ArrayIndexOutOfBoundsException e) {
-	        System.out.println("Invalid input format"); // change sout to logger.error later(?)
+			
+	        log.error("Invalid input format");
 	        return null;
+	        
 	    	} catch (Exception e) {
-	        System.out.println("Error occured" + e.getMessage());
+	    		
+	        log.error("Error Occured: " + e.getMessage());
 	        return null;
-	    	} finally {
+	        
 	    	}
 	}
 	
