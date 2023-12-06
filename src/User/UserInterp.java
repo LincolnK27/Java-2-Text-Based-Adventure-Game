@@ -1,4 +1,6 @@
 //Import the necessary files for logging
+package User;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,7 +15,7 @@ public class UserInterp {
 	private Integer verbSelect;
 	
 	// Logging Object Instantiated
-		final static Logger log = 
+	final static Logger log = 
 				LogManager.getLogger(UserInterp.class.getName());
 	
 	// Step 1 of the user interpretation methods (If there needs to be more)
@@ -33,7 +35,7 @@ public class UserInterp {
 		
 		// Figure out which action they selected, act accordingly
         switch(verb) {
-        case "walk":
+        case "move":
             verbSelect = 1;
             break;
         case "interact":

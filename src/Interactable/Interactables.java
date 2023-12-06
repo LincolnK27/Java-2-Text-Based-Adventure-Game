@@ -1,3 +1,4 @@
+package Interactable;
 
 public interface Interactables {
 

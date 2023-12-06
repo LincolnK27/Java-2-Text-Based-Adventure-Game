@@ -1,3 +1,4 @@
+package Rooms;
 
 public interface Room {
 
@@ -5,7 +6,7 @@ public interface Room {
 	public void setName() throws Exception;
 
 	//Return the room's name.
-	public String getName() throws Exception;
+	public void getName() throws Exception;
 
 	//Display the text when a player chooses to inspect the room.
 	public void inspectRoom() throws Exception;

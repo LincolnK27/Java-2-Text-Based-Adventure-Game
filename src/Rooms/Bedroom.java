@@ -1,10 +1,11 @@
+package Rooms;
 
-public class Kitchen {
+public class Bedroom {
 	public String name;
 	
 	//Set the room's name.
 	public void setName() {
-		name = "Kitchen";
+		name = "Bedroom";
 	}
 
 	//Return the room's name.
@@ -14,6 +15,6 @@ public class Kitchen {
 
 	//Display the text when a player chooses to inspect the room.
 	public void inspectRoom() {
-		System.out.println("A light swings idly above your head. It almost looks like any other kitchen, with a sink on one side, a switch next to the sink, and a strange lever on the wall.");
+		System.out.println("The bedroom smells musty. At the base of the bed is what appears to be a locked chest..");
 	}
 }

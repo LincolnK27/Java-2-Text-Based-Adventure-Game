@@ -1,3 +1,4 @@
+package Rooms;
 
 public class Basement {
 	public String name;
